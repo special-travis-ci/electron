@@ -1,19 +1,16 @@
-matrix:
+language: node_js
+node_js: "13"
+os: linux
+dist: trusty
+jobs:
   include:
     - os: osx
       osx_image: xcode10.1
-      language: node_js
-      node_js: "13"
       env:
         - ELECTRON_CACHE=$HOME/.cache/electron
         - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
 
-    # Windows currently doesn't support encrypted variables.
-    # Once supported uncomment this out & remove build with Docker
-    #
-    #- os: windows
-    #  language: node_js
-    #  node_js: "8"
+    - os: windows
 
     - os: linux
       services: docker
